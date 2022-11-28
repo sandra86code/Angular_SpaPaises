@@ -6,7 +6,7 @@ import { PorRegionComponent } from './pages/por-region/por-region.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PaisService } from './services/pais.service';
 import { FormsModule } from '@angular/forms';
-import { VerPaisDetalleComponent } from './pages/ver-pais-detalle/ver-pais-detalle.component';
+
 
 
 
@@ -15,8 +15,7 @@ import { VerPaisDetalleComponent } from './pages/ver-pais-detalle/ver-pais-detal
     PorCapitalComponent,
     PorPaisComponent,
     PorRegionComponent,
-    VerPaisComponent,
-    VerPaisDetalleComponent
+    VerPaisComponent
   ],
   imports: [
     CommonModule,

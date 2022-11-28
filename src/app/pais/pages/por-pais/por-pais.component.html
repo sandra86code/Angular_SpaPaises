@@ -26,7 +26,7 @@
             <td> {{country.capital}}, {{country.name.common}}</td> <!-- La capital, el nombre del país y la población lo obtendremos de la api -->
             <td> {{country.population}}</td>
             <td>
-                <a href="pais/{{country}}">Ver...</a> <!-- Esto lo dejamos así de momento -->
+                <a href="pais/{{country.name.common}}" (click)="searchCountries()">Ver...</a> <!-- Esto lo dejamos así de momento -->
             </td>
         </tr>
     </tbody>

@@ -20,6 +20,7 @@ export class PaisService {
     return [...this._results];
   }
 
+
   get errors(): boolean {
     return this._errors;
   }

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Country } from '../../interfaces/searchResponse';
 import { PaisService } from '../../services/pais.service';
 
@@ -9,14 +8,14 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private paisService: PaisService) { 
+  constructor(private paisService: PaisService) { 
     
   }
 
   ngOnInit(): void {
   }
 
-  @Input() query: string = "";
+  query: string = "";
 
   searchCountries () {
     this.paisService.searchCountries(this.query);
