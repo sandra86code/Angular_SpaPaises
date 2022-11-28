@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Country } from '../../interfaces/searchResponse';
 import { PaisService } from '../../services/pais.service';
 
@@ -9,16 +9,24 @@ import { PaisService } from '../../services/pais.service';
 })
 export class VerPaisComponent implements OnInit {
 
+  country! : { Name: string };
   
 
   constructor(private route: ActivatedRoute, private paisService: PaisService) { 
-    this.paisService.searchCountries(this.route.snapshot.params['id'])
+    
   }
 
   ngOnInit(): void {
+      this.route.params.subscribe(
+        (params: Params) => {
+          this.country.Name = params['Name'];
+    })
   }
 
-  
+  searchCountries() {
+    console.log(this.country.Name)
+    this.paisService.searchCountries(this.country.Name);
+  }
 
   get results(): Country[] {
     return this.paisService.results;

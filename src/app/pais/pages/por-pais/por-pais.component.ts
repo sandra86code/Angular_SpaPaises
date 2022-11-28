@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Country } from '../../interfaces/searchResponse';
 import { PaisService } from '../../services/pais.service';
 
@@ -13,6 +14,7 @@ export class PorPaisComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   query: string = "";
