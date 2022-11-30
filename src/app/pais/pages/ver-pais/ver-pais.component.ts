@@ -9,28 +9,20 @@ import { PaisService } from '../../services/pais.service';
 })
 export class VerPaisComponent implements OnInit {
 
-  country! : { Name: string };
+  code: string="";
+  country:any;
   
-
   constructor(private route: ActivatedRoute, private paisService: PaisService) { 
     
   }
 
   ngOnInit(): void {
-      this.route.params.subscribe(
-        (params: Params) => {
-          this.country.Name = params['Name'];
-    })
+      this.code = this.route.snapshot.params["id"];
+      this.paisService.getCountryByCode(this.code)
+      .subscribe({
+        next: (resp) => {this.country=resp[0]},
+        error: (error) =>  console.log(error)
+       
+      })
   }
-
-  searchCountries() {
-    console.log(this.country.Name)
-    this.paisService.searchCountries(this.country.Name);
-  }
-
-  get results(): Country[] {
-    return this.paisService.results;
-  }
-
-
 }

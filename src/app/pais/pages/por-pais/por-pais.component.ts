@@ -9,6 +9,10 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
+  query: string = "";
+  countries: Country[]=[];
+  errors: boolean = false;
+
   constructor(private paisService: PaisService) { 
     
   }
@@ -17,18 +21,19 @@ export class PorPaisComponent implements OnInit {
 
   }
 
-  query: string = "";
-
   searchCountries () {
-    this.paisService.searchCountries(this.query);
+    this.paisService.searchCountries(this.query)
+    .subscribe({
+      next: (resp) => {
+        this.countries = resp
+        this.errors = false;
+      },
+      error: (err) => {
+        this.errors = true
+        this.countries = []
+      }
+    })
     this.query = "";
   }
   
-  get results(): Country[] {
-    return this.paisService.results;
-  }
-
-  get errors() : boolean{
-    return this.paisService.errors;
-  }
 }
