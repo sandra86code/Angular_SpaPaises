@@ -10,7 +10,7 @@ import { PaisService } from '../../services/pais.service';
 export class VerPaisComponent implements OnInit {
 
   code: string="";
-  country:any;
+  country!:Country;
   
   constructor(private route: ActivatedRoute, private paisService: PaisService) { 
     

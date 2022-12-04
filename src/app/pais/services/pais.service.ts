@@ -7,6 +7,8 @@ import { Country } from '../interfaces/searchResponse';
   providedIn: 'root'
 })
 export class PaisService {
+  
+  
   private _url: string = "https://restcountries.com/v3.1/";
 
 
@@ -20,11 +22,21 @@ export class PaisService {
 
   searchCountries (query: string) : Observable<Country[]> {
     this._query = query;
-    return this.http.get<Country[]>(this._url + "name/" +this._query);
+    return this.http.get<Country[]>(this._url + "name/" + this._query);
   }
   
   getCountryByCode(code: string) : Observable<Country[]>{
     return this.http.get<Country[]>(this._url + "alpha/" + code)
+  }
+
+  searchCountriesByCapital(query: string) {
+    this._query = query;
+    return this.http.get<Country[]>(this._url + "capital/" + this._query)
+  }
+
+  searchCountriesByRegion(query: string) {
+    this._query = query;
+    return this.http.get<Country[]>(this._url + "region/" + this._query)
   }
 }
 

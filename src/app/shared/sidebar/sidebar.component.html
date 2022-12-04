@@ -5,8 +5,11 @@
     <hr class="text-white" />
 
     <div class="list-group list-reset">
-        <a class="list-group-item list-group-item-action" href="pais/">Buscar por país</a>
-        <a class="list-group-item list-group-item-action" href="region/">Por región</a>
-        <a class="list-group-item list-group-item-action" href="capital/">Por capital</a>
+        <a class="list-group-item list-group-item-action" 
+            [routerLink]="['/pais']" routerLinkActive="active-link">Buscar por país</a>
+        <a class="list-group-item list-group-item-action" 
+            [routerLink]="['region/']" routerLinkActive="active-link">Por región</a>
+        <a class="list-group-item list-group-item-action" 
+            [routerLink]="['capital/']" routerLinkActive="active-link">Por capital</a>
     </div>
 </div>

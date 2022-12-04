@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Country } from '../../interfaces/searchResponse';
 import { PaisService } from '../../services/pais.service';
 
@@ -9,9 +8,10 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
-  query: string = "";
+  
   countries: Country[]=[];
   errors: boolean = false;
+  textError: string = "";
 
   constructor(private paisService: PaisService) { 
     
@@ -21,11 +21,14 @@ export class PorPaisComponent implements OnInit {
 
   }
 
-  searchCountries () {
-    this.paisService.searchCountries(this.query)
+
+  searchCountries (query: string) {
+    this.textError = query;
+    this.paisService.searchCountries(query)
     .subscribe({
       next: (resp) => {
         this.countries = resp
+        console.log(this.countries)
         this.errors = false;
       },
       error: (err) => {
@@ -33,7 +36,7 @@ export class PorPaisComponent implements OnInit {
         this.countries = []
       }
     })
-    this.query = "";
+    query = "";
   }
   
 }

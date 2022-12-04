@@ -7,6 +7,8 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PaisService } from './services/pais.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 
 
@@ -16,7 +18,9 @@ import { RouterModule } from '@angular/router';
     PorCapitalComponent,
     PorPaisComponent,
     PorRegionComponent,
-    VerPaisComponent
+    VerPaisComponent,
+    BusquedaComponent,
+    TablaComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,6 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    VerPaisComponent
   ],
   providers: [
     PaisService
